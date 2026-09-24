@@ -22,8 +22,7 @@ class FabricaSensoresInternoTest {
 
     @Test
     void osDoisSensoresCriadosDevemSerDaMesmaFamilia() {
-        // O ponto central do Abstract Factory: os dois produtos vindos
-        // da mesma fábrica são sempre compatíveis (mesma família).
+
         assertInstanceOf(SensorTemperaturaInterno.class, fabrica.criarSensorTemperatura());
         assertInstanceOf(SensorPressaoInterno.class, fabrica.criarSensorPressao());
     }

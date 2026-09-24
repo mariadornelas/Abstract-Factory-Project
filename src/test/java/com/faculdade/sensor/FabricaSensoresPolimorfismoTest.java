@@ -4,16 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * Testa o desacoplamento que o Abstract Factory proporciona ao
- * cliente, usando uma fábrica "fake" (subclasse anônima de
- * {@link FabricaSensores}) que devolve sensores igualmente fake. Isso
- * prova que qualquer código que dependa apenas de {@link FabricaSensores},
- * {@link SensorTemperatura} e {@link SensorPressao} funciona
- * corretamente sem nunca precisar conhecer as classes concretas reais
- * ({@code SensorTemperaturaInterno}, {@code SensorPressaoExterno}, etc.)
- * — que é exatamente o objetivo do padrão.
- */
 class FabricaSensoresPolimorfismoTest {
 
     private static class SensorTemperaturaFake implements SensorTemperatura {
@@ -44,8 +34,6 @@ class FabricaSensoresPolimorfismoTest {
             }
         };
 
-        // Este trecho simula "código cliente": só conhece a abstração
-        // FabricaSensores, nunca uma classe concreta.
         String statusTemperatura = fabricaFake.criarSensorTemperatura().ler(50.0);
         String statusPressao = fabricaFake.criarSensorPressao().ler(5.0);
 
@@ -55,9 +43,7 @@ class FabricaSensoresPolimorfismoTest {
 
     @Test
     void trocarAFabricaConcretaNaoDeveExigirMudarOCodigoCliente() {
-        // O mesmo tipo de variável, declarado como a abstração
-        // FabricaSensores, funciona igualmente bem com qualquer
-        // família concreta.
+
         FabricaSensores fabricaInterno = new FabricaSensoresInterno();
         assertDoesNotThrow(() -> fabricaInterno.criarSensorTemperatura().ler(50.0));
 

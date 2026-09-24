@@ -1,8 +1,5 @@
 package com.faculdade.sensor;
 
-/**
- * Concrete Product B1: sensor de pressão da família <b>Interno</b>.
- */
 public class SensorPressaoInterno implements SensorPressao {
 
     private static final double LIMITE_ALERTA = 6.0;

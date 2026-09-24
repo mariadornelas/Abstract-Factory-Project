@@ -25,8 +25,7 @@ class SensorTemperaturaExternoTest {
 
     @Test
     void limiaresDevemSerMaisTolerantesQueOsDaFamiliaInterno() {
-        // Mesmo valor que seria CRÍTICO na família Interno (85.0)
-        // deve ser apenas ALERTA na família Externo.
+
         assertEquals("ALERTA", sensor.ler(85.0));
     }
 }
